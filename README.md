@@ -1,5 +1,5 @@
 # eval-shiro
-权限控制+数据过滤框架
+权限控制+数据过滤框架<br>
 附简单demo
 
 Introduction
@@ -24,8 +24,8 @@ Features
 
 项目目录
 ----
-* -----eval-common 相关实现核心代码
-* -----eval-demo springboot写的一个简单的例子，目前只写了权限验证相关的例子
+* eval-common -----相关实现核心代码
+* eval-demo   -----springboot写的一个简单的例子，目前只写了权限验证相关的例子
 
 环境
 ----
