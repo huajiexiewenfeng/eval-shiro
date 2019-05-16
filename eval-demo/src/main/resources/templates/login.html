@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>考核系统</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.0/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/toastr.js/2.0.1/css/toastr.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css"/>
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .load {
+        text-align: center;
+        display: none;
+        padding-top: 10%;
+        z-index: 1000;
+        position: fixed;
+        top: 25%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+</style>
+<body class="body-login">
+<div class="container">
+    <div class="form-login">
+        <div class="form-title">
+            eval权限验证系统<br>支持多种数据过滤方式
+        </div>
+        <div id="loading" class="load">
+            <img src="img/loading-small.gif" alt="loading"/>
+        </div>
+        <div class="form-wrap">
+            <input id="username" type="text" class="form-control" placeholder="用户名" autofocus="autofocus"/>
+            <input id="password" type="password" class="form-control" placeholder="密码"/>
+            <button class="btn btn-login btn-lg" id="btn_login">
+                <i>登&nbsp;&nbsp;录</i>
+            </button>
+            <div class="right-info">CopyRight © 2019 eval-xwf</div>
+        </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.bootcss.com/toastr.js/2.0.1/js/toastr.min.js"></script>
+<script type="text/javascript">
+    //拦截跳转
+    $(document).ready(function () {
+        //判断是否存在父页面
+        if (window.top != window.self) {//不存在父页面
+            top.location.href = "/login";
+        }
+        if(currentUser){
+            window.location.href = "/main";
+        }
+
+
+    });
+
+    $(document).keyup(function (event) {
+        if (event.keyCode == 13) {
+            $('#btn_login').trigger("click");
+        }
+    });
+
+    $('#btn_login').on('click', function() {
+        var username = $("#username").val();
+        var password = $("#password").val();
+        if (!username || !password) {
+            toastr.error("用户名密码不能为空");
+        } else {
+            $.ajax({
+                type : "POST",
+                dataType : "json",
+                url : "/loginValida",
+                data : {
+                    username : $("#username").val(),
+                    password : $("#password").val(),
+                },
+                beforeSend : function() {
+                    $("#loading").css("display", "block"); //点击登录后显示loading，隐藏输入框
+                },
+                success : function(data) {
+                    $("#loading").hide(); //隐藏loading
+                    if (data.rtnCode == 200) {
+                        $(location).attr('href', '/org/index');
+                    } else {
+                        toastr.error(data.msg);
+                    }
+                }
+            });
+        }
+
+    });
+
+
+
+
+</script>
+</body>
+</html>
