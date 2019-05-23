@@ -82,11 +82,10 @@ public class EvalAnnotationAuthorizingAspect extends EvalDataFilter {
     private Object filterResult(String[] filterConditions, Object res, EvalUser evalUser) throws Throwable {
         List data = getData(res);
         List<String> filterCondition = Arrays.asList(filterConditions);
-        List resNew = new ArrayList();
         for (int i = 0; i < filterCondition.size(); i++) {
-            resNew = filterData(data, filterCondition.get(i).trim(), evalUser);
+            data = filterData(data, filterCondition.get(i).trim(), evalUser);
         }
-        return returnData(res, resNew);
+        return returnData(res, data);
     }
 
     private Object returnData(Object res, List resNew) {
