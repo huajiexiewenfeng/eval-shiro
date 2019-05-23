@@ -14,7 +14,7 @@ public class EvalUser implements Serializable {
 
     private String userid;
     private String username;
-    private String field1; //过滤字段1
-    private String field2; //过滤字段2
+    private String orgId; //过滤字段1
+    private String level; //过滤字段2
 
 }

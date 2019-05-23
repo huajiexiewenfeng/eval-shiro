@@ -61,8 +61,8 @@ public class LoginController extends BaseApiService {
             EvalUser user = new EvalUser();
             user.setUserid("001");
             user.setUsername(username);
-            user.setField1("1");//过滤字段1  可以是部门
-            user.setField2("2");//过滤字段2  可以是职位
+            user.setOrgId("1");//过滤字段1  部门
+            user.setLevel("2");//过滤字段2  角色等级
             return user;
         } else {
             return null;
