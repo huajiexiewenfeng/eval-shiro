@@ -25,12 +25,13 @@ Features
 项目目录
 ----
 * eval-common -----相关实现核心代码
-* eval-demo   -----springboot写的一个简单的例子，目前只写了权限验证相关的例子
+* eval-demo   -----springboot简易demo，权限验证和过滤
 
 环境
 ----
-jdk8 
-springboot2.0
+jdk8 <br>
+springboot2.0 <br>
+redis
 
 使用方式
 ----
