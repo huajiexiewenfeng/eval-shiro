@@ -25,7 +25,7 @@ Features
 项目目录
 ----
 * eval-common -----相关实现核心代码
-* eval-demo   -----springboot写的一个简单的例子，权限验证和过滤的例子
+* eval-demo   -----springboot简易demo，权限验证和过滤
 
 环境
 ----
