@@ -1,14 +1,12 @@
 package com.huajie.controller;
 
 import com.huajie.base.BaseApiService;
-import com.huajie.base.ResponseBase;
 import com.huajie.core.annotation.ExtRequiresPermissions;
 import com.huajie.entity.User;
 import com.huajie.service.IUserService;
 import com.huajie.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
