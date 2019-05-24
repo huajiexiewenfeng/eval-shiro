@@ -29,8 +29,9 @@ Features
 
 环境
 ----
-jdk8 
-springboot2.0
+jdk8 <br>
+springboot2.0 <br>
+redis
 
 使用方式
 ----
